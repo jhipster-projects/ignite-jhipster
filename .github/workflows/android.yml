@@ -1,8 +1,6 @@
 name: Android-E2E
 on:
   push:
-    branches:
-      - master
   pull_request:
 jobs:
   generate:
