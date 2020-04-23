@@ -71,7 +71,7 @@ const updateAndroidFiles = async (context) => {
   })
 
   await patchInFile(context, `${process.cwd()}/android/build.gradle`, {
-    replace: `classpath("com.android.tools.build:gradle:3.4.2")`,
+    replace: `classpath("com.android.tools.build:gradle:3.5.2")`,
     insert: `classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
         classpath 'com.android.tools.build:gradle:3.5.3'`,
   })
