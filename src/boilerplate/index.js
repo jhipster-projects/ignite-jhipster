@@ -134,6 +134,7 @@ async function install(context) {
     name,
     version: getReactNativeVersion(context),
     useNpm: useNpm,
+    skipInstall: true,
   })
   if (rnInstall.exitCode > 0) {
     print.error('Please try again with the --debug flag for a more verbose error')
@@ -251,7 +252,7 @@ async function install(context) {
   spinner.text = `▸ running prettier on generated code`
   spinner.start()
   // install any missing dependencies
-  await system.run(`${useNpm ? 'npm' : 'yarn'} run prettier`, { stdio: 'ignore' })
+  await system.run(`npx prettier --write "app/**/*.js" "test/**/*.js" index.js`, { stdio: 'ignore' })
 
   const perfDuration = parseInt((new Date().getTime() - perfStart) / 10) / 100
   spinner.succeed(`ignited ${print.colors.yellow(name)} in ${perfDuration}s`)
